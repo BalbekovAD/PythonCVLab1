@@ -1,0 +1,6 @@
+dataset/**
+artifacts/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.venv/

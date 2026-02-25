@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "car-color-lab"
+version = "0.1.0"
+description = "Computer vision lab: DVM car color classification with PyTorch"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "torch",
+  "torchvision",
+  "numpy",
+  "pillow",
+  "matplotlib",
+  "tqdm",
+  "scikit-learn",
+  "mypy",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+ignore_missing_imports = true
+show_error_codes = true
+pretty = true
+
+[[tool.mypy.overrides]]
+module = ["torch.*", "torchvision.*", "sklearn.*", "matplotlib.*", "tqdm.*"]
+ignore_missing_imports = true

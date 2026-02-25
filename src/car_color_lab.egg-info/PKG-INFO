@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: car-color-lab
+Version: 0.1.0
+Summary: Computer vision lab: DVM car color classification with PyTorch
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: matplotlib
+Requires-Dist: tqdm
+Requires-Dist: scikit-learn
+Requires-Dist: mypy
+
+﻿# Car Color Lab
+
+Run:
+
+```powershell
+python run_lab.py
+```
+
+Configuration is in `src/car_color_lab/constants.py`.
