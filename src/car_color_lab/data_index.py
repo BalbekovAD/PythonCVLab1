@@ -6,6 +6,7 @@ from typing import Iterable
 
 from sklearn.model_selection import train_test_split
 
+from car_color_lab.constants import EXCLUDED_CLASSES
 from car_color_lab.types import IndexedDataset, SampleRecord, SplitIndices
 
 _IMAGE_EXTS: tuple[str, ...] = (".jpg", ".jpeg", ".png", ".bmp", ".webp")
@@ -38,8 +39,11 @@ def build_indexed_dataset(
         samples_all.append(SampleRecord(path=path, color=color))
         color_counts[color] += 1
 
+    excluded_normalized: set[str] = {color.casefold() for color in EXCLUDED_CLASSES}
     kept_colors: set[str] = {
-        color for color, count in color_counts.items() if count >= min_class_count
+        color
+        for color, count in color_counts.items()
+        if count >= min_class_count and color.casefold() not in excluded_normalized
     }
 
     filtered_samples: list[SampleRecord] = [

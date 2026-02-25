@@ -5,6 +5,7 @@ import os
 import random
 import sys
 from pathlib import Path
+from time import perf_counter
 from typing import Any, cast
 
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
@@ -99,7 +100,17 @@ def _save_metadata(indexed: IndexedDataset) -> None:
     save_json(ARTIFACTS_DIR / "metadata" / "dataset_summary.json", payload)
 
 
+def _print_class_distribution(indexed: IndexedDataset) -> None:
+    print("\nClass distribution (after MIN_CLASS_COUNT filter):")
+    total_samples: int = 0
+    for class_name, count in sorted(indexed.class_counts.items(), key=lambda item: item[1], reverse=True):
+        print(f"  {class_name:>14}: {count}")
+        total_samples += count
+    print(f"  {'TOTAL':>14}: {total_samples}")
+
+
 def run() -> None:
+    pipeline_start_time: float = perf_counter()
     if RUN_MODE not in {"full", "evaluation_only"}:
         raise ValueError(f"Invalid RUN_MODE: {RUN_MODE}")
 
@@ -126,6 +137,7 @@ def run() -> None:
         class_counts=indexed.class_counts,
         output_path=ARTIFACTS_DIR / "plots" / "class_distribution.png",
     )
+    _print_class_distribution(indexed)
     _save_metadata(indexed)
 
     train_transform, eval_transform = build_transforms(IMG_SIZE)
@@ -190,6 +202,7 @@ def run() -> None:
                 checkpoint_path=paths.checkpoint,
                 history_path=paths.history_json,
             )
+
             plot_training_curves(history=history, output_path=paths.curve_plot)
 
         if not paths.checkpoint.exists():
@@ -224,6 +237,7 @@ def run() -> None:
             shuffle=False,
         )
 
+        test_start_time: float = perf_counter()
         eval_artifacts = evaluate_model(
             model=model_eval,
             loader=test_loader,
@@ -231,6 +245,8 @@ def run() -> None:
             idx_to_class=indexed.idx_to_class,
             model_name=model_name,
         )
+        test_elapsed: float = perf_counter() - test_start_time
+        print(f"[{model_name}] test_sec={test_elapsed:.2f}")
         print_eval_metrics(eval_artifacts.metrics)
 
         metrics_payload: dict[str, Any] = {
@@ -267,7 +283,8 @@ def run() -> None:
         if device.type == "cuda":
             torch.cuda.empty_cache()
 
-    print("\nPipeline finished.")
+    pipeline_elapsed: float = perf_counter() - pipeline_start_time
+    print(f"\nPipeline finished. total_time_sec={pipeline_elapsed:.2f}")
 
 
 if __name__ == "__main__":

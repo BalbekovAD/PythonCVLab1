@@ -185,6 +185,7 @@ def train_model(
     for epoch in range(hparams.epochs):
         epoch_start_time: float = perf_counter()
 
+        train_epoch_start_time: float = perf_counter()
         train_loss = _train_one_epoch(
             model=model,
             loader=train_loader,
@@ -195,6 +196,9 @@ def train_model(
             epoch_idx=epoch,
             total_epochs=hparams.epochs,
         )
+        train_epoch_seconds: float = perf_counter() - train_epoch_start_time
+
+        val_epoch_start_time: float = perf_counter()
         val_loss, val_f1 = _validate_one_epoch(
             model=model,
             loader=val_loader,
@@ -203,6 +207,7 @@ def train_model(
             epoch_idx=epoch,
             total_epochs=hparams.epochs,
         )
+        val_epoch_seconds: float = perf_counter() - val_epoch_start_time
 
         scheduler.step()
 
@@ -217,7 +222,8 @@ def train_model(
         print(
             f"[{model_name}] epoch={epoch + 1}/{hparams.epochs} "
             f"train_loss={train_loss:.4f} val_loss={val_loss:.4f} val_f1={val_f1:.4f} "
-            f"lr={current_lr:.2e} epoch_time_sec={epoch_seconds:.2f}"
+            f"lr={current_lr:.2e} epoch_time_sec={epoch_seconds:.2f} "
+            f"train_epoch_sec={train_epoch_seconds:.2f} val_epoch_sec={val_epoch_seconds:.2f}"
         )
 
         if val_f1 > best_f1:
