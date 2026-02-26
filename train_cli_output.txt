@@ -1,0 +1,148 @@
+Using device: cuda
+
+Class distribution (after MIN_CLASS_COUNT filter):
+           Black: 14317
+            Grey: 9474
+           White: 9395
+            Blue: 8483
+          Silver: 7770
+             Red: 6095
+           Brown: 911
+           Green: 777
+          Yellow: 667
+           Beige: 600
+          Orange: 559
+          Purple: 362
+          Bronze: 329
+           TOTAL: 59739
+
+===== resnet18_scratch =====
+[resnet18_scratch] trainable_params=11,183,181 / total_params=11,183,181
+C:\Users\balbe\VSCodeProjects\PythonCVLab1V2\.venv\Lib\site-packages\torch\nn\modules\module.py:1367: UserWarning: expandable_segments not supported on this platform (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\c10/cuda/CUDAAllocatorConfig.h:39.)
+  return t.to(
+[resnet18_scratch] epoch=1/30 train_loss=1.6448 val_loss=2.2878 val_f1=0.3193 lr=9.97e-04 epoch_time_sec=63.55 train_epoch_sec=46.28 val_epoch_sec=17.26
+[resnet18_scratch] epoch=2/30 train_loss=1.3727 val_loss=1.3439 val_f1=0.5771 lr=9.89e-04 epoch_time_sec=40.21 train_epoch_sec=34.56 val_epoch_sec=5.65
+[resnet18_scratch] epoch=3/30 train_loss=1.2686 val_loss=1.3626 val_f1=0.6118 lr=9.76e-04 epoch_time_sec=39.28 train_epoch_sec=33.59 val_epoch_sec=5.70
+[resnet18_scratch] epoch=4/30 train_loss=1.2064 val_loss=1.3897 val_f1=0.5960 lr=9.57e-04 epoch_time_sec=39.11 train_epoch_sec=33.44 val_epoch_sec=5.67
+[resnet18_scratch] epoch=5/30 train_loss=1.1568 val_loss=1.1365 val_f1=0.6893 lr=9.33e-04 epoch_time_sec=40.33 train_epoch_sec=34.66 val_epoch_sec=5.67
+[resnet18_scratch] epoch=6/30 train_loss=1.1143 val_loss=1.3369 val_f1=0.6011 lr=9.05e-04 epoch_time_sec=39.98 train_epoch_sec=33.99 val_epoch_sec=5.99
+[resnet18_scratch] epoch=7/30 train_loss=1.0777 val_loss=1.4509 val_f1=0.5627 lr=8.72e-04 epoch_time_sec=40.01 train_epoch_sec=34.27 val_epoch_sec=5.74
+[resnet18_scratch] epoch=8/30 train_loss=1.0663 val_loss=1.2570 val_f1=0.6329 lr=8.35e-04 epoch_time_sec=39.49 train_epoch_sec=33.69 val_epoch_sec=5.80
+[resnet18_scratch] epoch=9/30 train_loss=1.0369 val_loss=1.0842 val_f1=0.6983 lr=7.94e-04 epoch_time_sec=40.14 train_epoch_sec=34.21 val_epoch_sec=5.93
+[resnet18_scratch] epoch=10/30 train_loss=1.0067 val_loss=1.0958 val_f1=0.6890 lr=7.50e-04 epoch_time_sec=40.05 train_epoch_sec=34.07 val_epoch_sec=5.98
+[resnet18_scratch] epoch=11/30 train_loss=0.9835 val_loss=1.0400 val_f1=0.7221 lr=7.03e-04 epoch_time_sec=40.21 train_epoch_sec=34.35 val_epoch_sec=5.86
+[resnet18_scratch] epoch=12/30 train_loss=0.9650 val_loss=1.1904 val_f1=0.6656 lr=6.55e-04 epoch_time_sec=40.04 train_epoch_sec=34.16 val_epoch_sec=5.88
+[resnet18_scratch] epoch=13/30 train_loss=0.9540 val_loss=1.0863 val_f1=0.7142 lr=6.04e-04 epoch_time_sec=41.48 train_epoch_sec=35.65 val_epoch_sec=5.82
+[resnet18_scratch] epoch=14/30 train_loss=0.9250 val_loss=1.1143 val_f1=0.6734 lr=5.52e-04 epoch_time_sec=40.33 train_epoch_sec=34.55 val_epoch_sec=5.79
+[resnet18_scratch] epoch=15/30 train_loss=0.9084 val_loss=1.0355 val_f1=0.7506 lr=5.00e-04 epoch_time_sec=39.90 train_epoch_sec=34.14 val_epoch_sec=5.75
+[resnet18_scratch] epoch=16/30 train_loss=0.8926 val_loss=1.0600 val_f1=0.7114 lr=4.48e-04 epoch_time_sec=40.44 train_epoch_sec=34.64 val_epoch_sec=5.80
+[resnet18_scratch] epoch=17/30 train_loss=0.8732 val_loss=1.0746 val_f1=0.7429 lr=3.96e-04 epoch_time_sec=41.05 train_epoch_sec=35.22 val_epoch_sec=5.83
+[resnet18_scratch] epoch=18/30 train_loss=0.8472 val_loss=1.0959 val_f1=0.7186 lr=3.45e-04 epoch_time_sec=39.90 train_epoch_sec=33.97 val_epoch_sec=5.93
+[resnet18_scratch] epoch=19/30 train_loss=0.8274 val_loss=1.0166 val_f1=0.7618 lr=2.97e-04 epoch_time_sec=39.89 train_epoch_sec=34.07 val_epoch_sec=5.82
+[resnet18_scratch] epoch=20/30 train_loss=0.8152 val_loss=1.0113 val_f1=0.7634 lr=2.50e-04 epoch_time_sec=39.74 train_epoch_sec=33.93 val_epoch_sec=5.81
+[resnet18_scratch] epoch=21/30 train_loss=0.7957 val_loss=0.9944 val_f1=0.7957 lr=2.06e-04 epoch_time_sec=39.93 train_epoch_sec=34.14 val_epoch_sec=5.79
+[resnet18_scratch] epoch=22/30 train_loss=0.7803 val_loss=0.9830 val_f1=0.7876 lr=1.65e-04 epoch_time_sec=40.66 train_epoch_sec=34.86 val_epoch_sec=5.80
+[resnet18_scratch] epoch=23/30 train_loss=0.7637 val_loss=0.9888 val_f1=0.7916 lr=1.28e-04 epoch_time_sec=40.69 train_epoch_sec=34.90 val_epoch_sec=5.79
+[resnet18_scratch] epoch=24/30 train_loss=0.7517 val_loss=0.9816 val_f1=0.8080 lr=9.55e-05 epoch_time_sec=40.55 train_epoch_sec=34.75 val_epoch_sec=5.80
+[resnet18_scratch] epoch=25/30 train_loss=0.7424 val_loss=0.9827 val_f1=0.8000 lr=6.70e-05 epoch_time_sec=41.16 train_epoch_sec=35.02 val_epoch_sec=6.14
+[resnet18_scratch] epoch=26/30 train_loss=0.7307 val_loss=0.9812 val_f1=0.7984 lr=4.32e-05 epoch_time_sec=40.64 train_epoch_sec=34.58 val_epoch_sec=6.05
+[resnet18_scratch] epoch=27/30 train_loss=0.7252 val_loss=0.9720 val_f1=0.8045 lr=2.45e-05 epoch_time_sec=40.17 train_epoch_sec=34.22 val_epoch_sec=5.95
+[resnet18_scratch] epoch=28/30 train_loss=0.7183 val_loss=0.9717 val_f1=0.8025 lr=1.09e-05 epoch_time_sec=40.19 train_epoch_sec=34.41 val_epoch_sec=5.78
+[resnet18_scratch] early stopping at epoch 28
+[resnet18_scratch] test_sec=18.51
+
+Model: resnet18_scratch
+F1_macro: 0.8079
+F1 per class:
+           Beige: 0.6952
+           Black: 0.9213
+            Blue: 0.9142
+          Bronze: 0.5055
+           Brown: 0.6912
+           Green: 0.8091
+            Grey: 0.8471
+          Orange: 0.7195
+          Purple: 0.6168
+             Red: 0.9689
+          Silver: 0.8851
+           White: 0.9693
+          Yellow: 0.9592
+
+===== resnet18_pretrain =====
+[resnet18_pretrain] trainable_params=11,025,677 / total_params=11,183,181
+[resnet18_pretrain] epoch=1/25 train_loss=1.1831 val_loss=1.0258 val_f1=0.7504 lr=2.99e-04 epoch_time_sec=57.26 train_epoch_sec=40.09 val_epoch_sec=17.17
+[resnet18_pretrain] epoch=2/25 train_loss=0.9530 val_loss=0.9961 val_f1=0.7541 lr=2.95e-04 epoch_time_sec=33.40 train_epoch_sec=27.71 val_epoch_sec=5.69
+[resnet18_pretrain] epoch=3/25 train_loss=0.8865 val_loss=0.9706 val_f1=0.7662 lr=2.89e-04 epoch_time_sec=33.42 train_epoch_sec=27.78 val_epoch_sec=5.64
+[resnet18_pretrain] epoch=4/25 train_loss=0.8380 val_loss=0.9296 val_f1=0.8016 lr=2.81e-04 epoch_time_sec=33.59 train_epoch_sec=28.01 val_epoch_sec=5.58
+[resnet18_pretrain] epoch=5/25 train_loss=0.7885 val_loss=0.9168 val_f1=0.8202 lr=2.71e-04 epoch_time_sec=33.67 train_epoch_sec=28.05 val_epoch_sec=5.63
+[resnet18_pretrain] epoch=6/25 train_loss=0.7651 val_loss=0.9210 val_f1=0.8102 lr=2.59e-04 epoch_time_sec=34.14 train_epoch_sec=28.35 val_epoch_sec=5.79
+[resnet18_pretrain] epoch=7/25 train_loss=0.7356 val_loss=0.9405 val_f1=0.8127 lr=2.46e-04 epoch_time_sec=34.27 train_epoch_sec=28.63 val_epoch_sec=5.64
+[resnet18_pretrain] epoch=8/25 train_loss=0.7149 val_loss=0.9075 val_f1=0.8423 lr=2.30e-04 epoch_time_sec=34.11 train_epoch_sec=28.44 val_epoch_sec=5.67
+[resnet18_pretrain] epoch=9/25 train_loss=0.6923 val_loss=0.9608 val_f1=0.8221 lr=2.14e-04 epoch_time_sec=34.25 train_epoch_sec=28.43 val_epoch_sec=5.82
+[resnet18_pretrain] epoch=10/25 train_loss=0.6773 val_loss=0.8887 val_f1=0.8432 lr=1.96e-04 epoch_time_sec=35.02 train_epoch_sec=29.18 val_epoch_sec=5.85
+[resnet18_pretrain] epoch=11/25 train_loss=0.6627 val_loss=0.9014 val_f1=0.8425 lr=1.78e-04 epoch_time_sec=35.07 train_epoch_sec=29.19 val_epoch_sec=5.88
+[resnet18_pretrain] epoch=12/25 train_loss=0.6508 val_loss=0.8863 val_f1=0.8383 lr=1.59e-04 epoch_time_sec=34.47 train_epoch_sec=28.79 val_epoch_sec=5.68
+[resnet18_pretrain] epoch=13/25 train_loss=0.6400 val_loss=0.8993 val_f1=0.8442 lr=1.41e-04 epoch_time_sec=34.09 train_epoch_sec=28.45 val_epoch_sec=5.65
+[resnet18_pretrain] epoch=14/25 train_loss=0.6328 val_loss=0.8950 val_f1=0.8418 lr=1.22e-04 epoch_time_sec=34.26 train_epoch_sec=28.59 val_epoch_sec=5.68
+[resnet18_pretrain] epoch=15/25 train_loss=0.6279 val_loss=0.8751 val_f1=0.8507 lr=1.04e-04 epoch_time_sec=34.80 train_epoch_sec=29.14 val_epoch_sec=5.66
+[resnet18_pretrain] epoch=16/25 train_loss=0.6228 val_loss=0.8955 val_f1=0.8526 lr=8.61e-05 epoch_time_sec=34.01 train_epoch_sec=28.29 val_epoch_sec=5.72
+[resnet18_pretrain] epoch=17/25 train_loss=0.6195 val_loss=0.8801 val_f1=0.8581 lr=6.96e-05 epoch_time_sec=34.30 train_epoch_sec=28.56 val_epoch_sec=5.75
+[resnet18_pretrain] epoch=18/25 train_loss=0.6162 val_loss=0.8742 val_f1=0.8603 lr=5.44e-05 epoch_time_sec=34.07 train_epoch_sec=28.34 val_epoch_sec=5.73
+[resnet18_pretrain] epoch=19/25 train_loss=0.6138 val_loss=0.8738 val_f1=0.8575 lr=4.07e-05 epoch_time_sec=34.13 train_epoch_sec=28.43 val_epoch_sec=5.70
+[resnet18_pretrain] epoch=20/25 train_loss=0.6111 val_loss=0.8771 val_f1=0.8604 lr=2.86e-05 epoch_time_sec=34.28 train_epoch_sec=28.56 val_epoch_sec=5.72
+[resnet18_pretrain] epoch=21/25 train_loss=0.6097 val_loss=0.8683 val_f1=0.8606 lr=1.86e-05 epoch_time_sec=34.41 train_epoch_sec=28.62 val_epoch_sec=5.79
+[resnet18_pretrain] epoch=22/25 train_loss=0.6094 val_loss=0.8688 val_f1=0.8583 lr=1.05e-05 epoch_time_sec=34.64 train_epoch_sec=28.90 val_epoch_sec=5.74
+[resnet18_pretrain] epoch=23/25 train_loss=0.6078 val_loss=0.8671 val_f1=0.8600 lr=4.71e-06 epoch_time_sec=34.47 train_epoch_sec=28.69 val_epoch_sec=5.77
+[resnet18_pretrain] epoch=24/25 train_loss=0.6071 val_loss=0.8690 val_f1=0.8605 lr=1.18e-06 epoch_time_sec=34.00 train_epoch_sec=28.26 val_epoch_sec=5.74
+[resnet18_pretrain] early stopping at epoch 24
+[resnet18_pretrain] test_sec=18.28
+
+Model: resnet18_pretrain
+F1_macro: 0.8490
+F1 per class:
+           Beige: 0.7650
+           Black: 0.9461
+            Blue: 0.9384
+          Bronze: 0.5060
+           Brown: 0.7045
+           Green: 0.8727
+            Grey: 0.8891
+          Orange: 0.8375
+          Purple: 0.7059
+             Red: 0.9777
+          Silver: 0.9259
+           White: 0.9837
+          Yellow: 0.9851
+
+===== resnet50_pretrain =====
+[resnet50_pretrain] trainable_params=14,991,373 / total_params=23,534,669
+[resnet50_pretrain] epoch=1/25 train_loss=1.3752 val_loss=1.0702 val_f1=0.7361 lr=1.99e-04 epoch_time_sec=68.79 train_epoch_sec=49.42 val_epoch_sec=19.38
+[resnet50_pretrain] epoch=2/25 train_loss=1.0024 val_loss=1.0178 val_f1=0.7670 lr=1.97e-04 epoch_time_sec=45.71 train_epoch_sec=37.94 val_epoch_sec=7.78
+[resnet50_pretrain] epoch=3/25 train_loss=0.9076 val_loss=0.9928 val_f1=0.7725 lr=1.93e-04 epoch_time_sec=46.23 train_epoch_sec=38.41 val_epoch_sec=7.82
+[resnet50_pretrain] epoch=4/25 train_loss=0.8380 val_loss=0.9825 val_f1=0.7951 lr=1.88e-04 epoch_time_sec=45.71 train_epoch_sec=37.86 val_epoch_sec=7.85
+[resnet50_pretrain] epoch=5/25 train_loss=0.7959 val_loss=1.0131 val_f1=0.7842 lr=1.81e-04 epoch_time_sec=46.11 train_epoch_sec=38.24 val_epoch_sec=7.87
+[resnet50_pretrain] epoch=10/25 train_loss=0.6822 val_loss=0.9835 val_f1=0.8194 lr=1.31e-04 epoch_time_sec=48.15 train_epoch_sec=40.10 val_epoch_sec=8.05
+[resnet50_pretrain] epoch=11/25 train_loss=0.6721 val_loss=0.9468 val_f1=0.8158 lr=1.19e-04 epoch_time_sec=46.83 train_epoch_sec=38.77 val_epoch_sec=8.06
+[resnet50_pretrain] epoch=12/25 train_loss=0.6602 val_loss=0.9596 val_f1=0.8137 lr=1.06e-04 epoch_time_sec=47.57 train_epoch_sec=39.70 val_epoch_sec=7.87
+[resnet50_pretrain] epoch=13/25 train_loss=0.6541 val_loss=0.9727 val_f1=0.8153 lr=9.37e-05 epoch_time_sec=46.67 train_epoch_sec=38.60 val_epoch_sec=8.07
+[resnet50_pretrain] early stopping at epoch 13
+[resnet50_pretrain] test_sec=23.49
+
+Model: resnet50_pretrain
+F1_macro: 0.8113
+F1 per class:
+           Beige: 0.7391
+           Black: 0.9026
+            Blue: 0.8755
+          Bronze: 0.4878
+           Brown: 0.6473
+           Green: 0.8111
+            Grey: 0.8289
+          Orange: 0.7907
+          Purple: 0.6667
+             Red: 0.9764
+          Silver: 0.8819
+           White: 0.9685
+          Yellow: 0.9703
+
+Pipeline finished. total_time_sec=2701.83

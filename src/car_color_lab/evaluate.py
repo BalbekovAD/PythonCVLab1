@@ -53,17 +53,13 @@ def evaluate_model(
         raise RuntimeError("All evaluation batches were skipped due to OOM.")
 
     labels: list[int] = list(range(len(idx_to_class)))
-    f1_macro_value: float = float(f1_score(y_true, y_pred, average="macro", labels=labels))
-
     per_class_values = f1_score(y_true, y_pred, average=None, labels=labels)
-    f1_per_class: dict[str, float] = {
-        idx_to_class[idx]: float(per_class_values[idx]) for idx in range(len(idx_to_class))
-    }
-
     metrics = EvalMetrics(
         model_name=model_name,
-        f1_macro=f1_macro_value,
-        f1_per_class=f1_per_class,
+        f1_macro=(float(f1_score(y_true, y_pred, average="macro", labels=labels))),
+        f1_per_class={
+            idx_to_class[idx]: float(per_class_values[idx]) for idx in range(len(idx_to_class))
+        },
     )
     return EvalArtifacts(metrics=metrics, y_true=y_true, y_pred=y_pred)
 

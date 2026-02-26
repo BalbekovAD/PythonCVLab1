@@ -25,13 +25,12 @@ def create_loader(
     num_workers: int,
     shuffle: bool,
 ) -> DataLoader[tuple[Tensor, Tensor]]:
-    persistent_workers: bool = PERSISTENT_WORKERS and num_workers > 0
     return DataLoader(
         dataset,
         batch_size=batch_size,
         shuffle=shuffle,
         num_workers=num_workers,
-        persistent_workers=persistent_workers,
+        persistent_workers=(PERSISTENT_WORKERS and num_workers > 0),
     )
 
 
@@ -112,8 +111,7 @@ def _validate_one_epoch(
     y_true: list[int] = []
     y_pred: list[int] = []
 
-    progress = tqdm(loader, desc=f"Val {epoch_idx + 1}/{total_epochs}", leave=False)
-    for images, targets in progress:
+    for images, targets in tqdm(loader, desc=f"Val {epoch_idx + 1}/{total_epochs}", leave=False):
         try:
             images = images.to(device)
             target_tensor: Tensor = targets.to(device=device, dtype=torch.long)

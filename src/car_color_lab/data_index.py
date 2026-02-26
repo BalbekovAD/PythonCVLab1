@@ -55,27 +55,23 @@ def build_indexed_dataset(
 
     targets: list[int] = [class_to_idx[sample.color] for sample in filtered_samples]
 
-    all_indices: list[int] = list(range(len(filtered_samples)))
     train_ratio, val_ratio, test_ratio = split_ratios
 
     if abs(train_ratio + val_ratio + test_ratio - 1.0) > 1e-6:
         raise ValueError("Split ratios must sum to 1.0")
 
     train_idx, temp_idx = train_test_split(
-        all_indices,
+        list(range(len(filtered_samples))),
         test_size=(1.0 - train_ratio),
         random_state=seed,
         stratify=targets,
     )
 
-    temp_targets: list[int] = [targets[idx] for idx in temp_idx]
-    val_share: float = val_ratio / (val_ratio + test_ratio)
-
     val_idx, test_idx = train_test_split(
         temp_idx,
-        test_size=(1.0 - val_share),
+        test_size=(1.0 - val_ratio / (val_ratio + test_ratio)),
         random_state=seed,
-        stratify=temp_targets,
+        stratify=[targets[idx] for idx in temp_idx],
     )
 
     class_counts_filtered: Counter[str] = Counter(sample.color for sample in filtered_samples)
