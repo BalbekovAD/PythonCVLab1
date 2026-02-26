@@ -1,0 +1,24 @@
+{
+  "class_to_idx": {
+    "Beige": 0,
+    "Black": 1,
+    "Blue": 2,
+    "Bronze": 3,
+    "Brown": 4,
+    "Green": 5,
+    "Grey": 6,
+    "Orange": 7,
+    "Purple": 8,
+    "Red": 9,
+    "Silver": 10,
+    "White": 11,
+    "Yellow": 12
+  },
+  "split_sizes": {
+    "train": 41817,
+    "val": 8961,
+    "test": 8961
+  },
+  "num_classes": 13,
+  "num_samples": 59739
+}
