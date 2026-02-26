@@ -143,6 +143,7 @@ def run() -> None:
     train_transform, eval_transform = build_transforms(IMG_SIZE)
 
     for model_name in MODELS_TO_RUN:
+        # if model_name != "resnet50_pretrain": continue
         print(f"\n===== {model_name} =====")
         paths: CheckpointPaths = checkpoint_paths(model_name)
 

@@ -13,7 +13,7 @@ ModelName = Literal["resnet18_scratch", "resnet18_pretrain", "resnet50_pretrain"
 RunMode = Literal["full", "evaluation_only"]
 
 # Pipeline mode used by run_lab.py.
-RUN_MODE: Final[RunMode] = "full"
+RUN_MODE: Final[RunMode] = "evaluation_only"
 
 # Path to the dataset root folder.
 DATASET_DIR: Final[Path] = Path("dataset")
@@ -46,34 +46,41 @@ IMG_SIZE: Final[int] = 224
 # Target metric for the lab.
 TARGET_F1: Final[float] = 0.8
 
+# Keep DataLoader worker processes alive between epochs/phases.
+# This removes expensive worker respawn pauses before each epoch.
+PERSISTENT_WORKERS: Final[bool] = True
+
 # Per-model train batch size.
 # Use smaller value for larger model to avoid OOM.
 MODEL_TRAIN_BATCH_SIZE: Final[dict[ModelName, int]] = {
-    "resnet18_scratch": 256 + 64*3, # 256
-    "resnet18_pretrain": 256 + 64*3, # 256
-    "resnet50_pretrain": 128 * 2, # 128
+    "resnet18_scratch": 64 * 4,#448,
+    "resnet18_pretrain": 64 * 4,#448,
+    "resnet50_pretrain": 64 * 4#448,
 }
 
 # Per-model eval batch size.
-MODEL_EVAL_BATCH_SIZE: Final[dict[ModelName, int]] = {
-    "resnet18_scratch": 256 + 64*3, # 128
-    "resnet18_pretrain": 256 + 64*3, # 128
-    "resnet50_pretrain": 128 * 2, # 64
-}
+MODEL_EVAL_BATCH_SIZE: Final[dict[ModelName, int]] = MODEL_TRAIN_BATCH_SIZE
+
+# {
+    # "resnet18_scratch": 448 * 2, # 128
+    # "resnet18_pretrain": 448 * 2, # 128
+    # "resnet50_pretrain": 512, # 64
+# }
 
 # Per-model train workers.
 MODEL_TRAIN_NUM_WORKERS: Final[dict[ModelName, int]] = {
-    "resnet18_scratch": 8, # 4
-    "resnet18_pretrain": 8, # 4
-    "resnet50_pretrain": 4, # 2
+    "resnet18_scratch": 4, # 4
+    "resnet18_pretrain": 4, # 4
+    "resnet50_pretrain": 4 , # 2
 }
 
 # Per-model eval workers.
-MODEL_EVAL_NUM_WORKERS: Final[dict[ModelName, int]] = {
-    "resnet18_scratch": 8, # 4
-    "resnet18_pretrain": 8, # 4
-    "resnet50_pretrain": 4, # 2
-}
+# MODEL_EVAL_NUM_WORKERS: Final[dict[ModelName, int]] = {
+    # "resnet18_scratch": 8, # 4
+    # "resnet18_pretrain": 8, # 4
+    # "resnet50_pretrain": 4, # 2
+# }
+MODEL_EVAL_NUM_WORKERS: Final[dict[ModelName, int]] = MODEL_TRAIN_NUM_WORKERS
 
 # Number of frozen early ResNet stages for each model.
 # Stage mapping:
@@ -109,19 +116,19 @@ class TrainHyperParams:
 # Per-model optimization hyperparameters.
 MODEL_HPARAMS: Final[dict[ModelName, TrainHyperParams]] = {
     "resnet18_scratch": TrainHyperParams(
-        epochs=1,#epochs=30,
+        epochs=30,#epochs=30,
         learning_rate=1e-3,
         weight_decay=1e-4,
         patience=4,
     ),
     "resnet18_pretrain": TrainHyperParams(
-        epochs=1,#epochs=25,
+        epochs=25,#epochs=25,
         learning_rate=3e-4,
         weight_decay=1e-4,
         patience=3,
     ),
     "resnet50_pretrain": TrainHyperParams(
-        epochs=1,#epochs=25,
+        epochs=25,#epochs=25,
         learning_rate=2e-4,
         weight_decay=1e-4,
         patience=3,

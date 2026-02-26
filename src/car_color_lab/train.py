@@ -14,7 +14,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR, LRScheduler
 from torch.utils.data import DataLoader, Dataset
 from tqdm.auto import tqdm
 
-from car_color_lab.constants import TrainHyperParams
+from car_color_lab.constants import PERSISTENT_WORKERS, TrainHyperParams
 from car_color_lab.io_utils import save_checkpoint, save_json
 from car_color_lab.types import TrainingHistory
 
@@ -25,11 +25,13 @@ def create_loader(
     num_workers: int,
     shuffle: bool,
 ) -> DataLoader[tuple[Tensor, Tensor]]:
+    persistent_workers: bool = PERSISTENT_WORKERS and num_workers > 0
     return DataLoader(
         dataset,
         batch_size=batch_size,
         shuffle=shuffle,
         num_workers=num_workers,
+        persistent_workers=persistent_workers,
     )
 
 
