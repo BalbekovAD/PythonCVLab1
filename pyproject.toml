@@ -16,6 +16,7 @@ dependencies = [
   "tqdm",
   "scikit-learn",
   "mypy",
+  "ipykernel>=7.2.0",
 ]
 
 [tool.uv.sources]

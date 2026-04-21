@@ -1,0 +1,8 @@
+pyproject.toml
+src/car_color_lab.egg-info/PKG-INFO
+src/car_color_lab.egg-info/SOURCES.txt
+src/car_color_lab.egg-info/dependency_links.txt
+src/car_color_lab.egg-info/requires.txt
+src/car_color_lab.egg-info/top_level.txt
+src/models/factory.py
+src/models/resnet18_scratch.py

@@ -1,0 +1,9 @@
+torch
+torchvision
+numpy
+pillow
+matplotlib
+tqdm
+scikit-learn
+mypy
+ipykernel>=7.2.0
