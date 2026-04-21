@@ -1,4 +1,5 @@
 dataset/**
+artifacts_smoke/
 __pycache__/
 .mypy_cache/
 .pytest_cache/

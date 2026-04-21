@@ -19,7 +19,7 @@ SRC_ROOT: Path = PROJECT_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from car_color_lab.constants import (
+from constants import (
     ARTIFACTS_DIR,
     DATASET_DIR,
     IMG_SIZE,
@@ -35,18 +35,18 @@ from car_color_lab.constants import (
     SPLIT_RATIOS,
     TARGET_F1,
 )
-from car_color_lab.data_index import build_indexed_dataset
-from car_color_lab.datasets import CarColorDataset, build_transforms
-from car_color_lab.evaluate import evaluate_model, print_eval_metrics
-from car_color_lab.io_utils import ensure_dir, load_checkpoint, save_json
-from car_color_lab.models.factory import build_model
-from car_color_lab.plots import (
+from data_index import build_indexed_dataset
+from datasets import CarColorDataset, build_transforms
+from evaluate import evaluate_model, print_eval_metrics
+from io_utils import ensure_dir, load_checkpoint, save_json
+from models.factory import build_model
+from plots import (
     plot_class_distribution,
     plot_confusion_matrix,
     plot_training_curves,
 )
-from car_color_lab.train import create_loader, train_model
-from car_color_lab.types import CheckpointPaths, IndexedDataset, TrainingHistory
+from train import create_loader, train_model
+from my_types import CheckpointPaths, IndexedDataset, TrainingHistory
 
 
 def set_seed(seed: int) -> None:
